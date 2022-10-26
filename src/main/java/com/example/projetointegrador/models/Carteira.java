@@ -13,7 +13,7 @@ import java.util.Date;
 public class Carteira {
     @Id //id da tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_carteira")
     private Long id;
     @Column(name = "nome")
     private String nome;
