@@ -23,5 +23,4 @@ public class Carteira {
     private Date dataInicioInvestimento;
     @Column(name = "dataTerminoInvestimento")
     private Date dataTerminoInvestimento;
-
 }
