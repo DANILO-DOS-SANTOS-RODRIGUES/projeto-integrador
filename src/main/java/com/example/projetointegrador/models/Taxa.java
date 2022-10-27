@@ -18,11 +18,11 @@ public class Taxa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_taxa")
     private Long id;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
-    @JoinTable(name = "documento_taxa",
-            joinColumns = @JoinColumn(name = "id_documento"),
-            inverseJoinColumns = @JoinColumn(name="id_taxa"))
-    private Documento documento;
+//    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+//    @JoinTable(name = "documento_taxa",
+//            joinColumns = @JoinColumn(name = "id_documento"),
+//            inverseJoinColumns = @JoinColumn(name="id_taxa"))
+//    private Documento documento;
     @Column(name = "nome")
     private String nome;
     @Column(name = "porcentagem")
