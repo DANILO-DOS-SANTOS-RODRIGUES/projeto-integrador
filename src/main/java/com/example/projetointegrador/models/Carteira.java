@@ -3,6 +3,7 @@ package com.example.projetointegrador.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 @Entity //para criar a tabela
 @Data
@@ -24,8 +25,8 @@ public class Carteira {
     private Double saldoAtual;
 
     @Column(name = "dataInicioInvestimento")
-    private Date dataInicioInvestimento;
+    private LocalDate dataInicioInvestimento;
 
     @Column(name = "dataTerminoInvestimento")
-    private Date dataTerminoInvestimento;
+    private LocalDate dataTerminoInvestimento;
 }

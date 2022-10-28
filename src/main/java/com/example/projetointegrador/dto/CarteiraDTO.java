@@ -2,6 +2,7 @@ package com.example.projetointegrador.dto;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 public class CarteiraDTO {
@@ -12,7 +13,7 @@ public class CarteiraDTO {
 
     private Double saldoAtual;
 
-    private Date dataInicioInvestimento;
+    private LocalDate dataInicioInvestimento;
 
-    private Date dataTerminoInvestimento;
+    private LocalDate dataTerminoInvestimento;
 }
