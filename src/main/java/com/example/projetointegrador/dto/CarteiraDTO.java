@@ -7,8 +7,12 @@ import java.util.Date;
 public class CarteiraDTO {
 
     private Long id;
+
     private String nome;
+
     private Double saldoAtual;
+
     private Date dataInicioInvestimento;
+
     private Date dataTerminoInvestimento;
 }
