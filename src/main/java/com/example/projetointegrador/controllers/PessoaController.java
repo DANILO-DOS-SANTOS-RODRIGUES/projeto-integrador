@@ -1,6 +1,9 @@
 package com.example.projetointegrador.controllers;
 
-import com.example.projetointegrador.dto.PessoaDTO;
+import com.example.projetointegrador.models.Pessoa;
+import com.example.projetointegrador.services.PessoaServiceImpl;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,10 +11,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/api")
 @CrossOrigin
 public class PessoaController {
+//primeiro lugan onde  a informação chega
+    final PessoaServiceImpl pessoaService;
+
+    public PessoaController(PessoaServiceImpl pessoaService) {
+        this.pessoaService = pessoaService;
+    }
 
     @PostMapping(value= "/salvarPessoa")
-    public ResponseEntity<Object> salvarPessoa(@RequestBody PessoaDTO pessoaDTO) {
-        System.out.println(pessoaDTO);
+    public ResponseEntity<Object> salvarPessoa(@RequestBody Pessoa pessoa) {
+        pessoaService.salvarPessoa(pessoa);
         return null;
+    }
+    @GetMapping(value="/buscarPessoa")
+    public ResponseEntity<Object> buscarPessoa(){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(pessoaService.buscarPessoa()) ;
     }
 }
