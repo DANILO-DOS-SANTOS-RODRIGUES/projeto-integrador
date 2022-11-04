@@ -18,7 +18,7 @@ public class Pessoa {
     @Id //id da tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pessoa")
-    private Long id;
+    private Long id_pessoa;
 
     @Column(name = "nome")
     private String nome;

@@ -8,5 +8,7 @@ public interface PessoaService {
     List<Pessoa> listar();
     Pessoa editar(Pessoa pessoa);
     Pessoa salvar(Pessoa pessoa);
+    void deletar(Long id_pessoa);
+
 
 }

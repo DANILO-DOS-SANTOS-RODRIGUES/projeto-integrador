@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class PessoaDTO {
 
-    private Long id;
+    private Long id_pessoa;
 
     private String nome;
 
