@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public class PessoaServiceImpl implements PessoaService{
     final PessoaRepository pessoaRepository;//realiza as consutas e incerções no banco
-
-    public PessoaServiceImpl(PessoaRepository pessoaRepository) {
+    public PessoaServiceImpl(PessoaRepository pessoaRepository)
+    {
         this.pessoaRepository = pessoaRepository;
     }
 
@@ -29,6 +29,5 @@ public class PessoaServiceImpl implements PessoaService{
         return pessoaRepository.save(pessoa);
 
     }
-
 
 }

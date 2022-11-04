@@ -1,4 +1,7 @@
 package com.example.projetointegrador.repositories;
 
-public interface TaxaRepository {
+import com.example.projetointegrador.models.Taxa;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TaxaRepository extends JpaRepository<Taxa, Long> {
 }
