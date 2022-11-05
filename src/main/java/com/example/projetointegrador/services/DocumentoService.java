@@ -9,4 +9,5 @@ public interface DocumentoService {
     List<Documento> listar();
     Documento editar(Documento documento);
     Documento salvar(Documento documento);
+    void deletar(Long id_documento);
 }
