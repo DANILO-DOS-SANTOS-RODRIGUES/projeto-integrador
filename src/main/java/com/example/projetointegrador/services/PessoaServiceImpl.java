@@ -1,6 +1,5 @@
 package com.example.projetointegrador.services;
 
-import com.example.projetointegrador.dto.PessoaDTO;
 import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.repositories.PessoaRepository;
 import org.springframework.stereotype.Service;
@@ -26,6 +25,7 @@ public class PessoaServiceImpl implements PessoaService{
     }
     @Override
     public Pessoa salvar(Pessoa pessoa){
+
         return pessoaRepository.save(pessoa);
     }
     @Override
@@ -33,4 +33,15 @@ public class PessoaServiceImpl implements PessoaService{
         pessoaRepository.deleteById(id_pessoa);
     }
 
+    /*
+    Validações
+[ ] Não deixar salvar uma pessoa com o mesmo cpf ou identidade;
+[ ] Não deixar salvar uma pessoa com o mesmo numero da casa;
+[ ] Não deixar salvar uma cateira com o mesmo nome;
+
+
+[ ] Não deixar salvar uma taxa com o mesmo nome;
+[ ] Não deixar salvar um documento com o mesmo cpf ou identidade;
+
+     */
 }

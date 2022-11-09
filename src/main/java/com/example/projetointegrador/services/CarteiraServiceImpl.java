@@ -24,7 +24,13 @@ public class CarteiraServiceImpl implements CarteiraService{
 
     @Override
     public Carteira salvar(Carteira carteira) {
-        return carteiraRepository.save(carteira);
+        List<Carteira> listaDeCarteiras = carteiraRepository.findAll();
+        if(carteira.getNome().equals(listaDeCarteiras)){
+            System.out.println("Nome da Carteira ja cadastrado!");
+        }else{
+            return carteiraRepository.save(carteira);
+        }
+        return carteira;
     }
     @Override
     public void deletar(Long id_carteira){
