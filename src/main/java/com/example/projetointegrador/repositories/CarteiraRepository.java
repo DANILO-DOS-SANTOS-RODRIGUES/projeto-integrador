@@ -4,6 +4,8 @@ import com.example.projetointegrador.models.Carteira;
 import com.example.projetointegrador.models.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CarteiraRepository extends JpaRepository<Carteira, Long> {
+import java.util.List;
 
+public interface CarteiraRepository extends JpaRepository<Carteira, Long> {//é o segundo passo
+List<Carteira> findCarteiraByNome(String nome);
 }

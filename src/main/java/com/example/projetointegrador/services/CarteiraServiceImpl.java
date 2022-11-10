@@ -23,14 +23,17 @@ public class CarteiraServiceImpl implements CarteiraService{
     }
 
     @Override
-    public Carteira salvar(Carteira carteira) {
+    public Carteira salvar(Carteira carteira) throws Exception { // é o ultimo passo e é onde valida a regra de negocio
+       // List<Carteira> listaDeCarteiras = carteiraRepository.findCarteiraByNome(carteira.getNome());
+
         List<Carteira> listaDeCarteiras = carteiraRepository.findAll();
-        if(carteira.getNome().equals(listaDeCarteiras)){
-            System.out.println("Nome da Carteira ja cadastrado!");
-        }else{
-            return carteiraRepository.save(carteira);
+
+        for(Carteira nomeCarteira : listaDeCarteiras){
+            if(carteira.getNome().equals(nomeCarteira.getNome())){
+                throw new Exception("Esse nome ja existe, insira outro nome");
+            }
         }
-        return carteira;
+        return carteiraRepository.save(carteira);
     }
     @Override
     public void deletar(Long id_carteira){
