@@ -27,7 +27,14 @@ public class EnderecoServiceImpl implements EnderecoService{
     }
 
     @Override
-    public Endereco salvar(Endereco endereco) {
+    public Endereco salvar(Endereco endereco) throws Exception {
+        List<Endereco> listaDeEndereco = enderecoRepository.findAll();
+
+        for(Endereco endereco1 : listaDeEndereco){
+            if(endereco.getCep().equals(endereco1.getCep())){
+                throw new Exception("Esse cep ja existe, insira outro cep");
+            }
+        }
         return enderecoRepository.save(endereco);
     }
 
