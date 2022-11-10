@@ -31,6 +31,9 @@ public class PessoaServiceImpl implements PessoaService{
             if(pessoa.getDocumento().getCpf().equals(pessoa1.getDocumento().getCpf()) || pessoa.getDocumento().getIdentidade().equals(pessoa1.getDocumento().getIdentidade())){
                 throw new Exception("Esse documento ja existe, insira outro documento");
             }
+            if(pessoa.getEndereco().getNumeroCasa().equals(pessoa1.getEndereco().getNumeroCasa())){
+                throw new Exception("Esse numero de casa ja foi cadastrado, por favor insira outro numero");
+            }
         }
         return pessoaRepository.save(pessoa);
     }
