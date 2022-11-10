@@ -3,9 +3,7 @@ package com.example.projetointegrador.services;
 
 import com.example.projetointegrador.models.Endereco;
 import com.example.projetointegrador.repositories.EnderecoRepository;
-
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

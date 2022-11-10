@@ -1,8 +1,6 @@
 package com.example.projetointegrador.services;
 
-import com.example.projetointegrador.models.Carteira;
 import com.example.projetointegrador.models.Endereco;
-
 import java.util.List;
 
 public interface EnderecoService {

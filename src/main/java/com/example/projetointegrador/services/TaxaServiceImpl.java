@@ -1,7 +1,5 @@
 package com.example.projetointegrador.services;
 
-
-import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.TaxaRepository;
 import org.springframework.stereotype.Service;

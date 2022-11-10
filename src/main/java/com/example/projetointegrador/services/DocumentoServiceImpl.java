@@ -1,10 +1,8 @@
 package com.example.projetointegrador.services;
 
 import com.example.projetointegrador.models.Documento;
-import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.repositories.DocumentoRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 @Service
 public class DocumentoServiceImpl implements DocumentoService {

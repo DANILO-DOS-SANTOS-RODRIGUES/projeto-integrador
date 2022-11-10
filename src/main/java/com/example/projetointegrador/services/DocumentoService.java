@@ -1,8 +1,6 @@
 package com.example.projetointegrador.services;
 
 import com.example.projetointegrador.models.Documento;
-import com.example.projetointegrador.models.Pessoa;
-
 import java.util.List;
 
 public interface DocumentoService {
