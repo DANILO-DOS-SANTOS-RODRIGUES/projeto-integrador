@@ -1,6 +1,7 @@
 package com.example.projetointegrador.services;
 
 import com.example.projetointegrador.models.Documento;
+import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.repositories.DocumentoRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,14 @@ public class DocumentoServiceImpl implements DocumentoService {
         return documentoRepository.save(documento);
     }
     @Override
-    public Documento salvar(Documento documento){
+    public Documento salvar(Documento documento) throws Exception {
+        List<Documento> listaDeDocumento = documentoRepository.findAll();
+
+        for(Documento documento1 : listaDeDocumento){
+            if(documento.getCpf().equals(documento1.getCpf()) || documento.getIdentidade().equals(documento1.getIdentidade()) ){
+                throw new Exception("Esse documento ja existe, insira outro documento");
+            }
+        }
         return documentoRepository.save(documento);
     }
     @Override
