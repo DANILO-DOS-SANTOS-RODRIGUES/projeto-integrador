@@ -6,7 +6,7 @@ Validações
 [x] Não deixar salvar uma cateira com o mesmo nome;
 [x] Não deixar salvar uma pessoa com o mesmo cpf ou identidade;
 [x] Não deixar salvar uma pessoa com o mesmo numero da casa;
-[ ] Não deixar salvar uma taxa com o mesmo nome;
+[x] Não deixar salvar uma taxa com o mesmo nome;
 [ ] Não deixar salvar um documento com o mesmo cpf ou identidade;
 [ ] Não deixar salvar um endereço com o mesmo cep.
 

@@ -1,6 +1,7 @@
 package com.example.projetointegrador.services;
 
 
+import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.TaxaRepository;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,14 @@ public class TaxaServiceImpl implements TaxaService{
         return taxaRepository.save(taxa);
     }
     @Override
-    public Taxa salvar(Taxa taxa){
+    public Taxa salvar(Taxa taxa) throws Exception {
+        List<Taxa> listaDeTaxa = taxaRepository.findAll();
+
+        for(Taxa nomeTaxa : listaDeTaxa){
+            if(taxa.getNome().equals(nomeTaxa.getNome())){
+                throw new Exception("Esse nome de taxa ja existe, insira outro nome de taxa");
+            }
+        }
         return taxaRepository.save(taxa);
     }
     @Override
