@@ -19,5 +19,4 @@ Forma de fazer a validação
             }
         }
         
-        
-        ![diagrama](https://user-images.githubusercontent.com/106254231/201235789-f418fa12-b407-4d5f-afe0-505d51b8163c.svg)
+       
