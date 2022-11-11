@@ -20,3 +20,4 @@ Forma de fazer a validação
         }
         
        
+![diagrama](https://user-images.githubusercontent.com/106254231/201235999-942a075f-54a8-4572-8de9-5a0c18148e10.svg)
