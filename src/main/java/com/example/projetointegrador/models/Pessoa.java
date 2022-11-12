@@ -38,7 +38,7 @@ public class Pessoa {
     @Column(name = "dependentes")
     private String dependentes;
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "pessoa_carteira",
             joinColumns = @JoinColumn(name = "id_carteira"),
             inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
@@ -55,5 +55,11 @@ public class Pessoa {
             joinColumns = @JoinColumn(name = "id_endereco"),
             inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
     private Endereco endereco;
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @JoinTable(name = "pessoa_Taxa",
+            joinColumns = @JoinColumn(name = "id_taxa"),
+            inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
+    private Taxa taxa;
 
 }

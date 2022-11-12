@@ -1,7 +1,9 @@
 package com.example.projetointegrador.services;
 
 import com.example.projetointegrador.models.Pessoa;
+import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.PessoaRepository;
+import com.example.projetointegrador.repositories.TaxaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +11,11 @@ import java.util.List;
 @Service
 public class PessoaServiceImpl implements PessoaService{
     final PessoaRepository pessoaRepository;//realiza as consutas e incerções no banco
-    public PessoaServiceImpl(PessoaRepository pessoaRepository)
+    final TaxaRepository taxaRepository;
+    public PessoaServiceImpl(PessoaRepository pessoaRepository, TaxaRepository taxaRepository)
     {
         this.pessoaRepository = pessoaRepository;
+        this.taxaRepository = taxaRepository;
     }
 
     @Override
@@ -40,5 +44,31 @@ public class PessoaServiceImpl implements PessoaService{
     @Override
     public void deletar(Long id_pessoa){
         pessoaRepository.deleteById(id_pessoa);
+    }
+
+    @Override
+    public  Double adicionarTaxa(Pessoa pessoa) {
+
+
+
+        return pessoaRepository.save(pessoa).getCarteira().getSaldoAtual();
+    }
+
+    public void adicionarTaxa() {
+
+        List<Pessoa> listaDeTaxa = pessoaRepository.findAll();
+        for(Pessoa pessoa2 : listaDeTaxa){
+
+
+//            if(pessoa.getCarteira().getSaldoAtual() != null){
+//                Double saldoAtual = pessoa.getCarteira().getSaldoAtual();
+//                Double juros = pessoa2.getPorcentagem();
+//                Double rendimento = saldoAtual + (saldoAtual * (juros/100));
+//
+//                pessoa.getCarteira().setSaldoAtual(rendimento);
+//            }
+
+        }
+
     }
 }
