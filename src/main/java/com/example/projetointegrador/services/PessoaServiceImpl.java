@@ -46,27 +46,18 @@ public class PessoaServiceImpl implements PessoaService{
         pessoaRepository.deleteById(id_pessoa);
     }
 
-    @Override
-    public  Double adicionarTaxa(Pessoa pessoa) {
-
-
-
-        return pessoaRepository.save(pessoa).getCarteira().getSaldoAtual();
-    }
 
     public void adicionarTaxa() {
-
         List<Pessoa> listaDeTaxa = pessoaRepository.findAll();
         for(Pessoa pessoa2 : listaDeTaxa){
 
-
-//            if(pessoa.getCarteira().getSaldoAtual() != null){
-//                Double saldoAtual = pessoa.getCarteira().getSaldoAtual();
-//                Double juros = pessoa2.getPorcentagem();
-//                Double rendimento = saldoAtual + (saldoAtual * (juros/100));
-//
-//                pessoa.getCarteira().setSaldoAtual(rendimento);
-//            }
+            if(pessoa2.getCarteira().getSaldoAtual() != null && pessoa2.getTaxa() != null && pessoa2.getTaxa().getPorcentagem() != null){
+                Double saldoAtual = pessoa2.getCarteira().getSaldoAtual();
+                Double juros = pessoa2.getTaxa().getPorcentagem();
+                Double rendimento = saldoAtual + (saldoAtual * (juros/100));
+                pessoa2.getCarteira().setSaldoAtual(rendimento);
+                pessoaRepository.save(pessoa2);
+            }
 
         }
 
