@@ -1,7 +1,7 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Pessoa;
-import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.PessoaRepository;
 import com.example.projetointegrador.repositories.TaxaRepository;
 import org.springframework.stereotype.Service;
@@ -33,10 +33,10 @@ public class PessoaServiceImpl implements PessoaService{
 
         for(Pessoa pessoa1 : listaDePessoa){
             if(pessoa.getDocumento().getCpf().equals(pessoa1.getDocumento().getCpf()) || pessoa.getDocumento().getIdentidade().equals(pessoa1.getDocumento().getIdentidade())){
-                throw new Exception("Esse documento ja existe, insira outro documento");
+                throw new EntityNotFoundException("Esse documento ja existe, insira outro documento");
             }
             if(pessoa.getEndereco().getNumeroCasa().equals(pessoa1.getEndereco().getNumeroCasa())){
-                throw new Exception("Esse numero de casa ja foi cadastrado, por favor insira outro numero");
+                throw new EntityNotFoundException("Esse numero de casa ja foi cadastrado, por favor insira outro numero");
             }
         }
         return pessoaRepository.save(pessoa);

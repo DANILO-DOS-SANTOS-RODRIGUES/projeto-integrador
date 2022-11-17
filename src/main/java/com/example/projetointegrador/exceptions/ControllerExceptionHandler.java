@@ -5,14 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.html.parser.Entity;
 import java.time.Instant;
 import java.util.Arrays;
 
 @ControllerAdvice
-public class ControllerExeptionHandler {
+public class ControllerExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<StandardException> entityNotFound(EntityNotFoundException e, HttpServletRequest request){
         StandardException err = new StandardException();
