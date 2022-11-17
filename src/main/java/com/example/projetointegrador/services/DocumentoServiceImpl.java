@@ -1,5 +1,6 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Documento;
 import com.example.projetointegrador.repositories.DocumentoRepository;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class DocumentoServiceImpl implements DocumentoService {
 
         for(Documento documento1 : listaDeDocumento){
             if(documento.getCpf().equals(documento1.getCpf()) || documento.getIdentidade().equals(documento1.getIdentidade()) ){
-                throw new Exception("Esse documento ja existe, insira outro documento");
+                throw new EntityNotFoundException("Esse documento ja existe, insira outro documento");
             }
         }
         return documentoRepository.save(documento);

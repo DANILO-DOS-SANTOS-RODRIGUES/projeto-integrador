@@ -1,6 +1,7 @@
 package com.example.projetointegrador.services;
 
 
+import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Endereco;
 import com.example.projetointegrador.repositories.EnderecoRepository;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,8 @@ public class EnderecoServiceImpl implements EnderecoService{
         List<Endereco> listaDeEndereco = enderecoRepository.findAll();
 
         for(Endereco endereco1 : listaDeEndereco){
-            if(endereco.getCep().equals(endereco1.getCep())){
-                throw new Exception("Esse cep ja existe, insira outro cep");
+            if(endereco.getCep() != null  && endereco.getCep().equals(endereco1.getCep())){
+                throw new EntityNotFoundException("Esse cep ja existe, insira outro cep");
             }
         }
         return enderecoRepository.save(endereco);

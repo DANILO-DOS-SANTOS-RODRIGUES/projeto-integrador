@@ -38,6 +38,10 @@ public class PessoaServiceImpl implements PessoaService{
             if(pessoa.getEndereco().getNumeroCasa().equals(pessoa1.getEndereco().getNumeroCasa())){
                 throw new EntityNotFoundException("Esse numero de casa ja foi cadastrado, por favor insira outro numero");
             }
+
+            if(pessoa.getEndereco().getCep().equals(pessoa1.getEndereco().getCep())){
+                throw new EntityNotFoundException("Esse cep de casa ja foi cadastrado, por favor insira outro cep");
+            }
         }
         return pessoaRepository.save(pessoa);
     }

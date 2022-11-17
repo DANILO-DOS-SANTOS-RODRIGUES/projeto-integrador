@@ -1,5 +1,6 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.TaxaRepository;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class TaxaServiceImpl implements TaxaService{
 
         for(Taxa nomeTaxa : listaDeTaxa){
             if(taxa.getNome().equals(nomeTaxa.getNome())){
-                throw new Exception("Esse nome de taxa ja existe, insira outro nome de taxa");
+                throw new EntityNotFoundException("Esse nome de taxa ja existe, insira outro nome de taxa");
             }
         }
         return taxaRepository.save(taxa);

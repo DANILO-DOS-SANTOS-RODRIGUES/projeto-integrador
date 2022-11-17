@@ -22,8 +22,8 @@ Forma de fazer a validação
        
 ![diagrama](https://user-images.githubusercontent.com/106254231/201235999-942a075f-54a8-4572-8de9-5a0c18148e10.svg)
 
-[] Criar metodo chamado 'adicionarTaxa', o metodo deve conter as seguintes funcionalidades.
+[x] Criar metodo chamado 'adicionarTaxa', o metodo deve conter as seguintes funcionalidades.
 obs: Novo metodo deve ser criado dentro de pessoaServiceImpl;
     funcionalidades
-        [] Buscar todas as taxas existentes no banco de dados;
-        [] Almentar o saldo de todos os clientes de acordo com porcentagem da taxax registrada no cliente.
+        [x] Buscar todas as taxas existentes no banco de dados;
+        [x] Almentar o saldo de todos os clientes de acordo com porcentagem da taxax registrada no cliente.

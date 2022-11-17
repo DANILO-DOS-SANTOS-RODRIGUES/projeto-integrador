@@ -1,5 +1,6 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Carteira;
 import com.example.projetointegrador.repositories.CarteiraRepository;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class CarteiraServiceImpl implements CarteiraService{
 
         for(Carteira nomeCarteira : listaDeCarteiras){
             if(carteira.getNome().equals(nomeCarteira.getNome())){
-                throw new Exception("Esse nome ja existe, insira outro nome");
+                throw new EntityNotFoundException("Esse nome ja existe, insira outro nome");
             }
         }
         return carteiraRepository.save(carteira);
