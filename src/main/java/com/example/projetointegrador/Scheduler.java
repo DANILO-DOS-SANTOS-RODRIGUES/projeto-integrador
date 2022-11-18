@@ -21,7 +21,5 @@ final PessoaServiceImpl pessoaService;
     public  void excutarAgendamento(){
         pessoaService.adicionarTaxa();
         System.out.println("O agendamento foi iniciado");
-
-
     }
 }
