@@ -28,7 +28,7 @@ public class TaxaServiceImpl implements TaxaService{
 
         for(Taxa nomeTaxa : listaDeTaxa){
             if(taxa.getNome().equals(nomeTaxa.getNome())){
-                throw new EntityNotFoundException("Esse nome de taxa ja existe, insira outro nome de taxa");
+                throw new Exception("Esse nome de taxa ja existe, insira outro nome de taxa");
             }
         }
         return taxaRepository.save(taxa);
