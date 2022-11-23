@@ -1,9 +1,7 @@
 package com.example.projetointegrador.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 
 // o @ significa que é uma anotation
@@ -12,6 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = "id_pessoa")//alterar uma taxa de uma pessoa
 @Table(name ="pessoa")
 public class Pessoa {
 

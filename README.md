@@ -26,4 +26,4 @@ Forma de fazer a validação
 obs: Novo metodo deve ser criado dentro de pessoaServiceImpl;
     funcionalidades
         [x] Buscar todas as taxas existentes no banco de dados;
-        [x] Almentar o saldo de todos os clientes de acordo com porcentagem da taxax registrada no cliente.
+        [x] Almentar o saldo de todos os clientes de acordo com porcentagem da taxa registrada no cliente.
