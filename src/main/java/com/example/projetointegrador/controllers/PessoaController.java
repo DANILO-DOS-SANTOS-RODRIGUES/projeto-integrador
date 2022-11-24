@@ -1,5 +1,6 @@
 package com.example.projetointegrador.controllers;
 
+import com.example.projetointegrador.dto.PessoaDTO;
 import com.example.projetointegrador.models.Pessoa;
 import com.example.projetointegrador.services.PessoaServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,8 @@ public class PessoaController {
     }
 
     @PostMapping(value= "/salvarPessoa")
-    public ResponseEntity<Object> salvarPessoa(@RequestBody Pessoa pessoa) throws Exception {
-        Pessoa response = pessoaServiceImpl.salvar(pessoa);
+    public ResponseEntity<Object> salvarPessoa(@RequestBody PessoaDTO pessoaDTO) throws Exception {
+        Pessoa response = pessoaServiceImpl.salvar(pessoaDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping(value="/buscarPessoa")
@@ -29,8 +30,8 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response) ;
     }
     @PutMapping(value = "/alterarPessoa")
-    public ResponseEntity<Object> alterarPessoa(@RequestBody Pessoa pessoa){
-        Pessoa response = pessoaServiceImpl.editar(pessoa);
+    public ResponseEntity<Object> alterarPessoa(@RequestBody PessoaDTO pessoaDTO){
+        Pessoa response = pessoaServiceImpl.editar(pessoaDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

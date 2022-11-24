@@ -1,5 +1,6 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.dto.CarteiraDTO;
 import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Carteira;
 import com.example.projetointegrador.repositories.CarteiraRepository;
@@ -18,21 +19,35 @@ public class CarteiraServiceImpl implements CarteiraService{
         return carteiraRepository.findAll();
     }
     @Override
-    public Carteira editar(Carteira carteira){
+    public Carteira editar(CarteiraDTO carteiraDTO){
+        Carteira carteira = Carteira.builder()
+                .nome(carteiraDTO.getCarteiraNome())
+                .saldoAtual(carteiraDTO.getSaldo())
+                .dataInicioInvestimento(carteiraDTO.getInicioInvestimento())
+                .dataTerminoInvestimento(carteiraDTO.getTerminoInvestimento())
+                .build();
+
         return carteiraRepository.save(carteira);
     }
 
     @Override
-    public Carteira salvar(Carteira carteira) throws Exception { // é o ultimo passo e é onde valida a regra de negocio
+    public Carteira salvar(CarteiraDTO carteiraDTO) throws Exception { // é o ultimo passo e é onde valida a regra de negocio
        // List<Carteira> listaDeCarteiras = carteiraRepository.findCarteiraByNome(carteira.getNome());
 
         List<Carteira> listaDeCarteiras = carteiraRepository.findAll();
 
         for(Carteira nomeCarteira : listaDeCarteiras){
-            if(carteira.getNome().equals(nomeCarteira.getNome())){
+            if(carteiraDTO.getNome().equals(nomeCarteira.getNome())){
                 throw new EntityNotFoundException("Esse nome ja existe, insira outro nome");
             }
         }
+
+        Carteira carteira = Carteira.builder()
+                .nome(carteiraDTO.getCarteiraNome())
+                .saldoAtual(carteiraDTO.getSaldo())
+                .dataInicioInvestimento(carteiraDTO.getInicioInvestimento())
+                .dataTerminoInvestimento(carteiraDTO.getTerminoInvestimento())
+                .build();
         return carteiraRepository.save(carteira);
     }
     @Override

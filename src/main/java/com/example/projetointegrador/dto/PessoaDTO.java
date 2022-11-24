@@ -13,21 +13,24 @@ public class PessoaDTO {
 
     private String nome;
 
-    private Documento documento;
-
-    private Endereco endereco;
+    private String nomeFront;
 
     private String genero;
 
     private Integer idade;
 
-    private Double rendimentoMensal;
-
     private String estadoCivil;
 
     private String dependentes;
 
+    private Double rendimentoMensal;
+
+
+    private Documento documento;
+
     private Carteira carteira;
+
+    private Endereco endereco;
 
     private Taxa taxa;
 }

@@ -3,6 +3,7 @@ package com.example.projetointegrador.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -22,6 +23,6 @@ public class Taxa {
     private String nome;
 
     @Column(name = "porcentagem")
-    private Double porcentagem;
+    private BigDecimal porcentagem;
 
 }

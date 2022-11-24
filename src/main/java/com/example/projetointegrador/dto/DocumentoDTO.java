@@ -12,4 +12,6 @@ public class DocumentoDTO {
     private String cnpj;
 
     private String identidade;
+
+    private String rg;
 }

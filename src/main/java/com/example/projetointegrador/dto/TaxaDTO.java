@@ -10,4 +10,7 @@ public class TaxaDTO {
     private String nome;
 
     private Double porcentagem;
+
+    private  String taxaNome;
+
 }

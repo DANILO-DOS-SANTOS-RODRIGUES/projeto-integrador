@@ -1,9 +1,13 @@
 package com.example.projetointegrador.services;
 
+import com.example.projetointegrador.dto.DocumentoDTO;
 import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Documento;
+import com.example.projetointegrador.models.Taxa;
 import com.example.projetointegrador.repositories.DocumentoRepository;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 @Service
 public class DocumentoServiceImpl implements DocumentoService {
@@ -19,18 +23,28 @@ public class DocumentoServiceImpl implements DocumentoService {
     }
 
     @Override
-    public Documento editar(Documento documento){
+    public Documento editar(DocumentoDTO documentoDTO){
+        Documento documento = Documento.builder()
+                .cpf(documentoDTO.getCpf())
+                .cnpj(documentoDTO.getCnpj())
+                .identidade(documentoDTO.getRg())
+                .build();
         return documentoRepository.save(documento);
     }
     @Override
-    public Documento salvar(Documento documento) throws Exception {
+    public Documento salvar(DocumentoDTO documentoDTO) throws Exception {
         List<Documento> listaDeDocumento = documentoRepository.findAll();
 
         for(Documento documento1 : listaDeDocumento){
-            if(documento.getCpf().equals(documento1.getCpf()) || documento.getIdentidade().equals(documento1.getIdentidade()) ){
+            if(documentoDTO.getCpf().equals(documento1.getCpf()) || documentoDTO.getIdentidade().equals(documento1.getIdentidade()) ){
                 throw new EntityNotFoundException("Esse documento ja existe, insira outro documento");
             }
         }
+        Documento documento = Documento.builder()
+                .cpf(documentoDTO.getCpf())
+                .cnpj(documentoDTO.getCnpj())
+                .identidade(documentoDTO.getRg())
+                .build();
         return documentoRepository.save(documento);
     }
     @Override
