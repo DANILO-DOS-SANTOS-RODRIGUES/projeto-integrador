@@ -15,7 +15,4 @@ public class EnderecoDTO {
 
     private String cep;
 
-    private String cepFront;
-
-    private String rua;
 }

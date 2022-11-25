@@ -27,7 +27,7 @@ public class DocumentoServiceImpl implements DocumentoService {
         Documento documento = Documento.builder()
                 .cpf(documentoDTO.getCpf())
                 .cnpj(documentoDTO.getCnpj())
-                .identidade(documentoDTO.getRg())
+                .identidade(documentoDTO.getIdentidade())
                 .build();
         return documentoRepository.save(documento);
     }
@@ -43,7 +43,7 @@ public class DocumentoServiceImpl implements DocumentoService {
         Documento documento = Documento.builder()
                 .cpf(documentoDTO.getCpf())
                 .cnpj(documentoDTO.getCnpj())
-                .identidade(documentoDTO.getRg())
+                .identidade(documentoDTO.getIdentidade())
                 .build();
         return documentoRepository.save(documento);
     }

@@ -5,6 +5,8 @@ import com.example.projetointegrador.exceptions.EntityNotFoundException;
 import com.example.projetointegrador.models.Carteira;
 import com.example.projetointegrador.repositories.CarteiraRepository;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -21,10 +23,10 @@ public class CarteiraServiceImpl implements CarteiraService{
     @Override
     public Carteira editar(CarteiraDTO carteiraDTO){
         Carteira carteira = Carteira.builder()
-                .nome(carteiraDTO.getCarteiraNome())
-                .saldoAtual(carteiraDTO.getSaldo())
-                .dataInicioInvestimento(carteiraDTO.getInicioInvestimento())
-                .dataTerminoInvestimento(carteiraDTO.getTerminoInvestimento())
+                .nome(carteiraDTO.getNome() != null ? carteiraDTO.getNome() : null)
+                .saldoAtual(carteiraDTO.getSaldoAtual() != null ? carteiraDTO.getSaldoAtual() : null)
+                .dataInicioInvestimento(carteiraDTO.getDataInicioInvestimento())
+                .dataTerminoInvestimento(carteiraDTO.getDataTerminoInvestimento())
                 .build();
 
         return carteiraRepository.save(carteira);
@@ -43,10 +45,10 @@ public class CarteiraServiceImpl implements CarteiraService{
         }
 
         Carteira carteira = Carteira.builder()
-                .nome(carteiraDTO.getCarteiraNome())
-                .saldoAtual(carteiraDTO.getSaldo())
-                .dataInicioInvestimento(carteiraDTO.getInicioInvestimento())
-                .dataTerminoInvestimento(carteiraDTO.getTerminoInvestimento())
+                .nome(carteiraDTO.getNome() )
+                .saldoAtual(carteiraDTO.getSaldoAtual() )
+                .dataInicioInvestimento(carteiraDTO.getDataInicioInvestimento())
+                .dataTerminoInvestimento(carteiraDTO.getDataTerminoInvestimento())
                 .build();
         return carteiraRepository.save(carteira);
     }

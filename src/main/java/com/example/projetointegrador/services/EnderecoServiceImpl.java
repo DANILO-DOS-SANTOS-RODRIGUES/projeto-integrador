@@ -27,10 +27,10 @@ public class EnderecoServiceImpl implements EnderecoService{
     @Override
     public Endereco editar(EnderecoDTO enderecoDTO) {
         Endereco endereco = Endereco.builder()
-                .logradouro(enderecoDTO.getRua())
+                .logradouro(enderecoDTO.getLogradouro())
                 .numeroCasa(enderecoDTO.getNumeroCasa())
                 .referencia(enderecoDTO.getReferencia())
-                .cep(enderecoDTO.getCepFront())
+                .cep(enderecoDTO.getCep())
                 .build();
         return enderecoRepository.save(endereco);
     }
@@ -46,10 +46,10 @@ public class EnderecoServiceImpl implements EnderecoService{
         }
 
         Endereco endereco = Endereco.builder()
-                .logradouro(enderecoDTO.getRua())
+                .logradouro(enderecoDTO.getLogradouro())
                 .numeroCasa(enderecoDTO.getNumeroCasa())
                 .referencia(enderecoDTO.getReferencia())
-                .cep(enderecoDTO.getCepFront())
+                .cep(enderecoDTO.getCep())
                 .build();
 
         return enderecoRepository.save(endereco);

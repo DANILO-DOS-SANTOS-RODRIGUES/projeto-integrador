@@ -28,7 +28,7 @@ public class PessoaServiceImpl implements PessoaService{
     @Override
     public Pessoa editar(PessoaDTO pessoaDTO){
         Pessoa pessoaEdita = Pessoa.builder()
-                .nome(pessoaDTO.getNomeFront())
+                .nome(pessoaDTO.getNome())
                 .genero(pessoaDTO.getGenero())
                 .idade(pessoaDTO.getIdade())
                 .estadoCivil(pessoaDTO.getEstadoCivil())
@@ -57,7 +57,7 @@ public class PessoaServiceImpl implements PessoaService{
             }
         }
         Pessoa pessoa = Pessoa.builder()
-                .nome(pessoaDTO.getNomeFront())
+                .nome(pessoaDTO.getNome())
                 .genero(pessoaDTO.getGenero())
                 .idade(pessoaDTO.getIdade())
                 .estadoCivil(pessoaDTO.getEstadoCivil())
@@ -77,16 +77,28 @@ public class PessoaServiceImpl implements PessoaService{
 
 
     public void adicionarTaxa() {
+
         List<Pessoa> listaDeTaxa = pessoaRepository.findAll();
         for(Pessoa pessoa2 : listaDeTaxa){
-
+            PessoaDTO pessoaDTO = new PessoaDTO();
             if(pessoa2.getCarteira().getSaldoAtual() != null && pessoa2.getTaxa() != null && pessoa2.getTaxa().getPorcentagem() != null){
                 Double saldoAtual = pessoa2.getCarteira().getSaldoAtual();
                 BigDecimal juros = pessoa2.getTaxa().getPorcentagem();
                 Double rendimento = saldoAtual + (saldoAtual * (juros.doubleValue()/100));
                 pessoa2.getCarteira().setSaldoAtual(rendimento);
 
-
+                pessoa2 = Pessoa.builder()
+                        .nome(pessoaDTO.getNome())
+                        .genero(pessoaDTO.getGenero())
+                        .idade(pessoaDTO.getIdade())
+                        .estadoCivil(pessoaDTO.getEstadoCivil())
+                        .dependentes(pessoaDTO.getDependentes())
+                        .rendimentoMensal(pessoaDTO.getRendimentoMensal())
+                        .documento(pessoaDTO.getDocumento())
+                        .carteira(pessoaDTO.getCarteira())
+                        .endereco(pessoaDTO.getEndereco())
+                        .taxa(pessoaDTO.getTaxa())
+                        .build();
                 pessoaRepository.save(pessoa2);
             }
 

@@ -13,5 +13,4 @@ public class DocumentoDTO {
 
     private String identidade;
 
-    private String rg;
 }

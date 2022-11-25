@@ -13,8 +13,6 @@ public class PessoaDTO {
 
     private String nome;
 
-    private String nomeFront;
-
     private String genero;
 
     private Integer idade;
@@ -25,7 +23,6 @@ public class PessoaDTO {
 
     private Double rendimentoMensal;
 
-
     private Documento documento;
 
     private Carteira carteira;
@@ -33,4 +30,5 @@ public class PessoaDTO {
     private Endereco endereco;
 
     private Taxa taxa;
+
 }
